@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>СТОРІНКА РЕДАГУВАННЯ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="scripts/CreateNote.js"></script>
+    <script type="module" src="scripts/UpdateNote.js"></script>
+    <script type="module" src="scripts/sections.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <article>
+      <h1>СТОРІНКА РЕДАГУВАННЯ</h1>
+      <a class="page-link" href="neindex.html"><p>СТОРІНКА ПЕРЕГЛЯДУ</p></a>
+      <!-- Створити новий запис клієнта -->
+      <section class="small">
+        <div class="header-wrapper"><h2>СТВОРИТИ ЗАПИС</h2></div>
+        <form id="create-form" onsubmit="event.preventDefault(); return false;">
+          <input type="text" id="name" name="name" placeholder="ІМ'Я" />
+          <input type="text" id="age" name="age" placeholder="ВІК" />
+          <input type="text" id="gender" name="gender" placeholder="СТАТЬ" />
+          <input
+            type="text"
+            id="height"
+            name="height"
+            placeholder="ЗРІСТ(У СМ)"
+          />
+          <input
+            type="text"
+            id="weight"
+            name="weight"
+            placeholder="ВАГА(У КГ)"
+          />
+          <input
+            type="text"
+            id="kkal"
+            name="kkal"
+            placeholder="КІЛЬКІСТЬ ККАЛ"
+          />
+          <input
+            type="text"
+            id="proteins"
+            name="proteins"
+            placeholder="БІЛКИ"
+          />
+          <input type="text" id="fats" name="fats" placeholder="ЖИРИ" />
+          <input type="text" id="carbs" name="carbs" placeholder="ВУГЛЕВОДИ" />
+          <input
+            type="text"
+            id="extra-info"
+            name="extra-info"
+            placeholder="ДОДАТКОВО"
+          />
+          <button type="submit" id="create-button">СКАЧАТИ</button>
+        </form>
+      </section>
+      <section class="big">
+        <div class="header-wrapper">
+          <h2>ЗАВАНТАЖИТИ ЗАПИС ДЛЯ ОНОВЛЕННЯ</h2>
+        </div>
+        <form id="upload-form" onsubmit="event.preventDefault(); return false;">
+          <label for="file-upload" class="custom-file-upload">
+            <input
+              type="file"
+              name="file-upload"
+              id="file-upload"
+              accept=".json,application/json"
+            />
+            ОБРАТИ ФАЙЛ
+          </label>
+          <button type="submit" id="upload-button">ЗАВАНТАЖИТИ ЗАПИС</button>
+          <p id="upload-status">КЛІЄНТ ДЛЯ ОБРОБКИ:</p>
+        </form>
+        <section class="small">
+          <div class="header-wrapper"><h3>ВАГА</h3></div>
+          <form
+            id="new-weight-form"
+            onsubmit="event.preventDefault(); return false;"
+          >
+            <input
+              type="text"
+              name="new-weight"
+              id="new-weight"
+              placeholder="ВАГА(У КГ)"
+            />
+            <button type="submit" id="new-weight-button">
+              ДОДАТИ НОВУ ВАГУ
+            </button>
+          </form>
+        </section>
+        <section class="small">
+          <div class="header-wrapper"><h3>БЖВ ТА КАЛОРІЙНІСТЬ</h3></div>
+          <form
+            id="new-menu-form"
+            onsubmit="event.preventDefault(); return false;"
+          >
+            <input
+              type="text"
+              name="new-kkal"
+              id="new-kkal"
+              placeholder="ККАЛ"
+            />
+            <input
+              type="text"
+              name="new-proteins"
+              id="new-proteins"
+              placeholder="БІЛКИ"
+            />
+            <input
+              type="text"
+              name="new-fats"
+              id="new-fats"
+              placeholder="ЖИРИ"
+            />
+            <input
+              type="text"
+              name="new-carbs"
+              id="new-carbs"
+              placeholder="ВУГЛЕВОДИ"
+            />
+            <button type="submit" id="new-menu-button">
+              ОНОВИТИ БЖВ ТА КАЛОРІЙНІСТЬ
+            </button>
+          </form>
+        </section>
+        <section class="small">
+          <div class="header-wrapper"><h3>ТРЕНУВАННЯ</h3></div>
+          <form
+            id="add-training-form"
+            onsubmit="event.preventDefault(); return false;"
+          >
+            <select name="training-type" id="training-type" required>
+              <option value="">ОБЕРІТЬ ТИП ТРЕНУВАННЯ</option>
+              <option value="спина">СПИНА</option>
+              <option value="груди">ГРУДИ</option>
+              <option value="ноги">НОГИ</option>
+              <option value="руки">РУКИ</option>
+              <option value="плечі">ПЛЕЧІ</option>
+              <option value="тулуб">ТУЛУБ</option>
+            </select>
+            <button type="submit" id="training-button">
+              ДОДАТИ ТРЕНУВАННЯ
+            </button>
+          </form>
+        </section>
+      </section>
+    </article>
+  </body>
+</html>

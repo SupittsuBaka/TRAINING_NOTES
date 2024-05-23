@@ -1,0 +1,101 @@
+:root {
+  --violet: #672A4E;
+  --gray: #586F7C;
+  --blue: #B8DBD9;
+  --white: #F4F4F9;
+}
+
+* {
+  appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+}
+
+h1 {
+  font-size: 28px;
+  color: var(--violet);
+}
+
+h2,h3,h4,h5,h6 {
+  font-size: 24px;
+  color: var(--white);
+}
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 64px;
+  background-color: var(--violet);
+}
+
+input, label, button, select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 200px;
+  height: 48px;
+  background-color: var(--mint-gray);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+}
+::placeholder, label, select, option {
+  color: var(--gray);
+}
+
+label:hover, input:focus-visible, select:focus-visible {
+  outline: auto;
+  outline-width: 1px;
+  outline-color: var(--blue);
+}
+
+button {
+  background-color: var(--blue);
+  color: black;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+body, input, select, option, button {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 40px;
+  gap: 10px;
+
+}
+
+section {
+  max-height: 64px;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+
+section.grow.big {
+  max-height: 9999px;
+  transition: all 0.5s linear;
+}
+
+section.grow.small {
+  max-height: 1000px;
+  transition: all 0.5s linear;
+}
+
+.page-link {
+  color: var(--gray);
+}
