@@ -198,6 +198,10 @@ newSetButton.addEventListener("click", () => {
     alert("Заповніть поля.");
     return;
   }
+  if (+sameSetsNumber.value < 1 || !sameSetsNumber.value) {
+    alert("Оберіть валідне значення кількості однакових підходів.");
+    return;
+  }
 
   for (let i = 0; i < sameSetsNumber.value; i++) {
     lastExercise.addSet(setWeight, setReps);
@@ -221,6 +225,7 @@ addSetsButton.addEventListener("click", () => {
     alert("Додайте підходи");
     return;
   }
+  setsCount.innerText = "0";
   addSetsButton.classList.add("disabled-button");
   newSetButton.classList.add("disabled-button");
   exerciseButton.classList.remove("disabled-button");
