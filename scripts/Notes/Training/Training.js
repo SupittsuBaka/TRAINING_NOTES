@@ -2,19 +2,16 @@ import { Exercise } from "./Exercise.js";
 
 export class Training {
   date;
-  type;
   exercises = [];
 
-  constructor(data) {
-    if (typeof data != "string") {
+  constructor(data = null) {
+    if (data != null) {
       this.date = data.date;
-      this.type = data.type;
       data.exercises.map((e) => {
         this.exercises.push(new Exercise(e));
       });
     } else {
       this.date = new Date().toDateString();
-      this.type = data;
     }
   }
 

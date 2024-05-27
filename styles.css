@@ -16,6 +16,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: var(--white);
+  margin: 0;
 }
 
 h1 {
@@ -27,12 +28,37 @@ h2,h3,h4,h5,h6 {
   font-size: 24px;
   color: var(--white);
 }
-.header-wrapper {
+.header-wrapper, .client-status-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 64px;
+  
+  padding: 0 20px;
+}
+
+.header-wrapper {
   background-color: var(--violet);
+  max-height: 64px;
+}
+.client-status-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: sticky;
+  top: 0;
+  background-color: var(--blue);
+  font-size: 16px;
+  padding: 10px 0;
+}
+.client-status-wrapper>button {
+  width: 120px;
+  height: 32px;
+  background-color: var(--violet);
+  color: var(--white);
+  font-size: 12px;
+}
+#client-status {
+  margin: 0;
 }
 
 input, label, button, select {
@@ -83,17 +109,38 @@ form {
 section {
   max-height: 64px;
   overflow: hidden;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
 }
 
-section.grow.big {
-  max-height: 9999px;
-  transition: all 0.5s linear;
-}
 
-section.grow.small {
+
+section.grow {
   max-height: 1000px;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
+}
+
+#note-wrapper {
+  overflow-y: scroll;
+  max-height: calc(100dvh - 229px);
+}
+
+.disabled-section, .disabled-button {
+  background-color: var(--gray);
+  pointer-events: none;
+}
+
+#training-button, #update-show-note-button {
+  margin-top: 40px;
+}
+
+#note-wrapper, .show-training, .show-exercise, .show-set {
+  padding: 0 20px;
+}
+#note-wrapper * {
+  text-align: left;
+}
+.training-paragraph {
+  color: var(--violet);
 }
 
 .page-link {

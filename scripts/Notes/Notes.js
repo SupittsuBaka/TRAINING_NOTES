@@ -24,7 +24,7 @@ export class Notes {
     }
   }
 
-  addTraining(type) {
-    this.trainings.push(new Training(type));
+  addTraining() {
+    this.trainings.push(new Training());
   }
 }

@@ -10,7 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" src="scripts/CreateNote.js"></script>
     <script type="module" src="scripts/UpdateNote.js"></script>
     <script type="module" src="scripts/sections.js"></script>
     <link rel="stylesheet" href="styles.css" />
@@ -20,7 +19,7 @@
       <h1>СТОРІНКА РЕДАГУВАННЯ</h1>
       <a class="page-link" href="neindex.html"><p>СТОРІНКА ПЕРЕГЛЯДУ</p></a>
       <!-- Створити новий запис клієнта -->
-      <section class="small">
+      <section>
         <div class="header-wrapper"><h2>СТВОРИТИ ЗАПИС</h2></div>
         <form id="create-form" onsubmit="event.preventDefault(); return false;">
           <input type="text" id="name" name="name" placeholder="ІМ'Я" />
@@ -58,10 +57,10 @@
             name="extra-info"
             placeholder="ДОДАТКОВО"
           />
-          <button type="submit" id="create-button">СКАЧАТИ</button>
+          <button type="submit" id="create-button">СТВОРИТИ</button>
         </form>
       </section>
-      <section class="big">
+      <section>
         <div class="header-wrapper">
           <h2>ЗАВАНТАЖИТИ ЗАПИС ДЛЯ ОНОВЛЕННЯ</h2>
         </div>
@@ -75,81 +74,123 @@
             />
             ОБРАТИ ФАЙЛ
           </label>
-          <button type="submit" id="upload-button">ЗАВАНТАЖИТИ ЗАПИС</button>
-          <p id="upload-status">КЛІЄНТ ДЛЯ ОБРОБКИ:</p>
+          <button type="submit" id="upload-button">ЗАВАНТАЖИТИ</button>
         </form>
-        <section class="small">
-          <div class="header-wrapper"><h3>ВАГА</h3></div>
-          <form
-            id="new-weight-form"
-            onsubmit="event.preventDefault(); return false;"
+      </section>
+      <div class="client-status-wrapper">
+        <p id="client-status">КЛІЄНТ ДЛЯ ОБРОБКИ:</p>
+        <button type="button" id="download-note-button">СКАЧАТИ</button>
+      </div>
+      <section>
+        <div class="header-wrapper disabled-section"><h3>ВАГА</h3></div>
+        <form
+          id="new-weight-form"
+          onsubmit="event.preventDefault(); return false;"
+        >
+          <input
+            type="text"
+            name="new-weight"
+            id="new-weight"
+            placeholder="ВАГА(У КГ)"
+          />
+          <button type="submit" id="new-weight-button">ДОДАТИ НОВУ ВАГУ</button>
+        </form>
+      </section>
+      <section>
+        <div class="header-wrapper disabled-section">
+          <h3>БЖВ ТА КАЛОРІЙНІСТЬ</h3>
+        </div>
+        <form
+          id="new-menu-form"
+          onsubmit="event.preventDefault(); return false;"
+        >
+          <input type="text" name="new-kkal" id="new-kkal" placeholder="ККАЛ" />
+          <input
+            type="text"
+            name="new-proteins"
+            id="new-proteins"
+            placeholder="БІЛКИ"
+          />
+          <input type="text" name="new-fats" id="new-fats" placeholder="ЖИРИ" />
+          <input
+            type="text"
+            name="new-carbs"
+            id="new-carbs"
+            placeholder="ВУГЛЕВОДИ"
+          />
+          <button type="submit" id="new-menu-button">
+            ОНОВИТИ БЖВ ТА КАЛОРІЙНІСТЬ
+          </button>
+        </form>
+      </section>
+      <section>
+        <div class="header-wrapper disabled-section">
+          <h3>ДОДАТИ ВПРАВУ ТА ПІДХОДИ</h3>
+        </div>
+        <button type="button" id="training-button">ОБРОБКА ТРЕНУВАННЯ</button>
+        <form
+          id="add-exercise-form"
+          onsubmit="event.preventDefault(); return false;"
+        >
+          <p>ДОДАНО ВПРАВ: <span id="exercises-count">0</span></p>
+          <select name="exercise-select" id="exercise-select">
+            <option value="">ОБЕРІТЬ НАЗВУ ВПРАВИ</option>
+          </select>
+          <p>АБО</p>
+          <input
+            type="text"
+            name="new-exercise-name"
+            id="new-exercise-name"
+            placeholder="НОВА НАЗВА"
+          />
+          <button
+            type="submit"
+            id="add-exercise-button"
+            class="disabled-button"
           >
-            <input
-              type="text"
-              name="new-weight"
-              id="new-weight"
-              placeholder="ВАГА(У КГ)"
-            />
-            <button type="submit" id="new-weight-button">
-              ДОДАТИ НОВУ ВАГУ
-            </button>
-          </form>
-        </section>
-        <section class="small">
-          <div class="header-wrapper"><h3>БЖВ ТА КАЛОРІЙНІСТЬ</h3></div>
-          <form
-            id="new-menu-form"
-            onsubmit="event.preventDefault(); return false;"
-          >
-            <input
-              type="text"
-              name="new-kkal"
-              id="new-kkal"
-              placeholder="ККАЛ"
-            />
-            <input
-              type="text"
-              name="new-proteins"
-              id="new-proteins"
-              placeholder="БІЛКИ"
-            />
-            <input
-              type="text"
-              name="new-fats"
-              id="new-fats"
-              placeholder="ЖИРИ"
-            />
-            <input
-              type="text"
-              name="new-carbs"
-              id="new-carbs"
-              placeholder="ВУГЛЕВОДИ"
-            />
-            <button type="submit" id="new-menu-button">
-              ОНОВИТИ БЖВ ТА КАЛОРІЙНІСТЬ
-            </button>
-          </form>
-        </section>
-        <section class="small">
-          <div class="header-wrapper"><h3>ТРЕНУВАННЯ</h3></div>
-          <form
-            id="add-training-form"
-            onsubmit="event.preventDefault(); return false;"
-          >
-            <select name="training-type" id="training-type" required>
-              <option value="">ОБЕРІТЬ ТИП ТРЕНУВАННЯ</option>
-              <option value="спина">СПИНА</option>
-              <option value="груди">ГРУДИ</option>
-              <option value="ноги">НОГИ</option>
-              <option value="руки">РУКИ</option>
-              <option value="плечі">ПЛЕЧІ</option>
-              <option value="тулуб">ТУЛУБ</option>
-            </select>
-            <button type="submit" id="training-button">
-              ДОДАТИ ТРЕНУВАННЯ
-            </button>
-          </form>
-        </section>
+            ДОДАТИ ВПРАВУ
+          </button>
+        </form>
+        <form
+          id="add-sets-form"
+          onsubmit="event.preventDefault(); return false;"
+        >
+          <p>ДОДАНО ПІДХОДІВ: <span id="sets-count">0</span></p>
+          <input
+            type="text"
+            name="new-set-weight"
+            id="new-set-weight"
+            placeholder="ДОДАТКОВА ВАГА (В КГ)"
+          />
+          <input
+            type="text"
+            name="new-set-reps"
+            id="new-set-reps"
+            placeholder="ПОВТОРЕННЯ"
+          />
+          <label for="same-sets-number">КІЛЬКІСТЬ ОДНАКОВИХ ПІДХОДІВ </label
+          ><input
+            type="number"
+            name="same-sets-number"
+            id="same-sets-number"
+            value="1"
+          />
+          <button type="button" id="new-set-button" class="disabled-button">
+            ДОДАТИ
+          </button>
+          <button type="submit" id="add-sets-button" class="disabled-button">
+            НОВА ВПРАВА
+          </button>
+        </form>
+      </section>
+      <section class="show-note">
+        <div class="header-wrapper disabled-section">
+          <h3>НОТАТКИ</h3>
+        </div>
+        <button type="button" id="update-show-note-button">
+          ОНОВИТИ ПІСЛЯ ЗМІН
+        </button>
+        <div id="note-wrapper">НОТАТОК ЩЕ НЕМА</div>
       </section>
     </article>
   </body>
