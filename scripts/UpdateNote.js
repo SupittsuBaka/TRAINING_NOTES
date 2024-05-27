@@ -208,7 +208,9 @@ newSetButton.addEventListener("click", () => {
   );
   document.getElementById("add-sets-form").reset();
   let setsCount = document.getElementById("sets-count");
-  setsCount.innerText = (++setsCount.innerText).toString();
+  setsCount.innerText = (
+    +setsCount.innerText + sameSetsNumber.value
+  ).toString();
   console.log(JSON.stringify(clientNote));
 });
 
