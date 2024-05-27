@@ -210,11 +210,12 @@ newSetButton.addEventListener("click", () => {
   alert(
     `Додано підходи:\nКількість:${sameSetsNumber.value}\nВага:${setWeight}\nПовтори:${setReps}`
   );
-  document.getElementById("add-sets-form").reset();
   let setsCount = document.getElementById("sets-count");
   setsCount.innerText = (
-    +setsCount.innerText + sameSetsNumber.value
+    +setsCount.innerText + +sameSetsNumber.value
   ).toString();
+
+  document.getElementById("add-sets-form").reset();
   console.log(JSON.stringify(clientNote));
 });
 
